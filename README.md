@@ -95,16 +95,6 @@ Each line contains:
   "prompt": "Q: What is the capital of France?\nA:",
   "response": "Paris."
 }
-## Project Structure
-
-minivault_api/
-├── main.py              # FastAPI app (API + streaming)
-├── cli_test.py          # CLI tool for testing
-├── requirements.txt     # Dependencies
-├── README.md            # Documentation
-└── logs/
-    ├── log.jsonl        # API logs
-    └── cli_log.jsonl    # CLI logs
 
 ## Powered By
 FastAPI

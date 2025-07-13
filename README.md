@@ -64,46 +64,42 @@ How to Use:
     - Expect streamed text output
 
 ## Model Configuration
-### The default model is:
+- The default model is:
 MODEL_NAME = "distilgpt2"
-### Other options we can use:
+- Other options we can use:
 
-"gpt2"
+  gpt2
+  EleutherAI/gpt-neo-1.3B" (requires more memory)
+  tiiuae/falcon-7b-instruct" (requires GPU)
+  openai-community/gpt2" (safe fallback fork)
 
-"EleutherAI/gpt-neo-1.3B" (requires more memory)
-
-"tiiuae/falcon-7b-instruct" (requires GPU)
-
-"openai-community/gpt2" (safe fallback fork)
-
-To change the model, just replace the model name in main.py.
+- To change the model, just replace the model name in main.py.
 
 ## Logs
-### All interactions are saved in JSONL format:
+- All interactions are saved in JSONL format:
 
-  logs/log.jsonl – for API interactions
-  logs/cli_log.jsonl – for CLI prompts
-Each line contains:
-
-{
-  "timestamp": "2025-07-13T12:00:00+00:00",
-  "mode": "stream",
-  "prompt": "Q: What is the capital of France?\nA:",
-  "response": "Paris."
-}
+    logs/log.jsonl – for API interactions
+    logs/cli_log.jsonl – for CLI prompts
+- Each line contains:
+    {
+      "timestamp": "2025-07-13T12:00:00+00:00",
+      "mode": "stream",
+      "prompt": "Q: What is the capital of France?\nA:",
+      "response": "Paris."
+    }
 
 ## Design Choices & Tradeoffs
 
-  ### Streaming was simulated using greedy decoding (argmax) instead of sampling to match Hugging Face’s limitations (they do not support native token-by-token HTTP streaming).
-  ### For simplicity and reliability, all prompts are logged locally in flat JSONL files. Future improvements could include a web dashboard or log viewer.
-  ### The model is loaded at server start for performance; if we want per-request flexibility or dynamic loading, lazy loading or background workers could be implemented. And We can use cloud base libraries or big capacity libraries that have trained enough.
-  ### The API currently uses CPU by default, which is slower for large models. GPU support is seamless if PyTorch detects CUDA.
+  - Streaming was simulated using greedy decoding (argmax) instead of sampling to match Hugging Face’s limitations (they do not support native token-by-token HTTP streaming).
+  - For simplicity and reliability, all prompts are logged locally in flat JSONL files. Future improvements could include a web dashboard or log viewer.
+  - The model is loaded at server start for performance; if we want per-request flexibility or dynamic loading, lazy loading or background workers could be implemented. And We can use cloud base libraries or big capacity libraries that have trained enough.
+  - The API currently uses CPU by default, which is slower for large models. GPU support is seamless if PyTorch detects CUDA.
 
 ## Powered By
-  ### FastAPI
-  ### Transformers
-  ### PyTorch
-  ### Uvicorn
+  - FastAPI
+  - Transformers
+  - PyTorch
+  - Uvicorn
 
 ## Notes
   This is a completely local API — no OpenAI, no cloud APIs.

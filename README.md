@@ -92,6 +92,16 @@ Each line contains:
   "response": "Paris."
 }
 
+## Design Choices & Tradeoffs
+
+### Streaming was simulated using greedy decoding (argmax) instead of sampling to match Hugging Face’s limitations (they do not support native token-by-token HTTP streaming).
+
+### For simplicity and reliability, all prompts are logged locally in flat JSONL files. Future improvements could include a web dashboard or log viewer.
+
+### The model is loaded at server start for performance; if we want per-request flexibility or dynamic loading, lazy loading or background workers could be implemented. And We can use cloud base libraries or big capacity libraries that have trained enough.
+
+### The API currently uses CPU by default, which is slower for large models. GPU support is seamless if PyTorch detects CUDA.
+
 ## Powered By
   ### FastAPI
   ### Transformers

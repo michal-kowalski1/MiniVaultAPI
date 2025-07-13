@@ -1,0 +1,29 @@
+{
+  "info": {
+    "name": "MiniVault API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "POST /generate-stream",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"prompt\": \"Q: What time is it now? A:\" }"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/generate-stream",
+          "protocol": "http",
+          "host": ["127.0.0.1"],
+          "port": "8000",
+          "path": ["generate-stream"]
+        }
+      },
+      "response": []
+    }
+  ]
+}

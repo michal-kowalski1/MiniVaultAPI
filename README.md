@@ -42,12 +42,11 @@ Request: { "prompt": "Q: What time is it now? A:" }
 ## CLI Usage
 Run from terminal:
 
-Full (non-streaming):
-python cli_test.py "Q: What time is it now? A:"
+### Full (non-streaming):
+  python cli_test.py "Q: What time is it now? A:"
 
-Streaming:
-
-python cli_test.py --stream "Q: What time is it now? A:"
+### Streaming:
+  python cli_test.py --stream "Q: What time is it now? A:"
 
 ## Postman Collection
 We can use Postman to manually test the endpoints:
@@ -65,10 +64,9 @@ How to Use:
     - Expect streamed text output
 
 ## Model Configuration
-The default model is:
-
+### The default model is:
 MODEL_NAME = "distilgpt2"
-Other options we can use:
+### Other options we can use:
 
 "gpt2"
 
@@ -81,12 +79,10 @@ Other options we can use:
 To change the model, just replace the model name in main.py.
 
 ## Logs
-All interactions are saved in JSONL format:
+### All interactions are saved in JSONL format:
 
-logs/log.jsonl – for API interactions
-
-logs/cli_log.jsonl – for CLI prompts
-
+  logs/log.jsonl – for API interactions
+  logs/cli_log.jsonl – for CLI prompts
 Each line contains:
 
 {
@@ -97,17 +93,14 @@ Each line contains:
 }
 
 ## Powered By
-FastAPI
-
-Transformers
-
-PyTorch
-
-Uvicorn
+  ### FastAPI
+  ### Transformers
+  ### PyTorch
+  ### Uvicorn
 
 ## Notes
-This is a completely local API — no OpenAI, no cloud APIs.
-
-Perfect for offline, privacy-preserving LLM experiments.
-
-Streaming is simulated using greedy token-by-token generation.
+  This is a completely local API — no OpenAI, no cloud APIs.
+  
+  Perfect for offline, privacy-preserving LLM experiments.
+  
+  Streaming is simulated using greedy token-by-token generation.
